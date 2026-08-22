@@ -6,16 +6,16 @@ class BalloonIcon;
 class CarryMeat;
 
 namespace al {
-    class Rail;
-    class RailRider;
-}   // namespace al
+class Rail;
+class RailRider;
+}  // namespace al
 
 class BirdCarryMeat : public al::LiveActor {
 public:
     BirdCarryMeat(const char* name);
 
     void init(const al::ActorInitInfo& info) override;
-    bool receiveMsg(const al::SensorMsg* message, al::HitSensor* other, 
+    bool receiveMsg(const al::SensorMsg* message, al::HitSensor* other,
                     al::HitSensor* self) override;
     void control() override;
 

@@ -1,7 +1,6 @@
 #include "Enemy/BirdCarryMeat.h"
 
 #include "Library/Demo/DemoFunction.h"
-#include "Library/Math/MatrixUtil.h"
 #include "Library/LiveActor/ActorActionFunction.h"
 #include "Library/LiveActor/ActorAnimFunction.h"
 #include "Library/LiveActor/ActorClippingFunction.h"
@@ -10,6 +9,7 @@
 #include "Library/LiveActor/ActorMovementFunction.h"
 #include "Library/LiveActor/ActorPoseUtil.h"
 #include "Library/Math/MathUtil.h"
+#include "Library/Math/MatrixUtil.h"
 #include "Library/Nerve/NerveSetupUtil.h"
 #include "Library/Nerve/NerveUtil.h"
 #include "Library/Placement/PlacementFunction.h"
@@ -28,8 +28,8 @@ NERVE_IMPL(BirdCarryMeat, MoveMeat);
 NERVE_IMPL(BirdCarryMeat, ReactionCarry);
 NERVE_IMPL(BirdCarryMeat, FlyAway);
 
-NERVES_MAKE_STRUCT(BirdCarryMeat, WaitOnRail, Drop, DemoCarryMeat, MoveMeat, 
-                   ReactionCarry, FlyAway);
+NERVES_MAKE_STRUCT(BirdCarryMeat, WaitOnRail, Drop, DemoCarryMeat, MoveMeat, ReactionCarry,
+                   FlyAway);
 }  // namespace
 
 // Matched
@@ -41,14 +41,13 @@ void BirdCarryMeat::init(const al::ActorInitInfo& info) {
     al::initNerve(this, &NrvBirdCarryMeat.WaitOnRail, 0);
     al::calcLinkChildNum(info, "CarryMeat");
     mCarryMeat = new CarryMeat(al::getLinksActorDisplayName(info, "CarryMeat", 0));
-    /* This is what the code does; not sure how to get around inaccessibility of private member variable
-    mCarryMeat->mBirdCarryMeat = this;
+    /* This is what the code does; not sure how to get around inaccessibility of private member
+    variable mCarryMeat->mBirdCarryMeat = this;
     */
     al::initLinksActor(mCarryMeat, info, "CarryMeat", 0);
     mRailKeeper = al::tryCreateRailKeeper(al::getPlacementInfo(info), "Rail");
-    if (mRailKeeper == nullptr) {
+    if (mRailKeeper == nullptr)
         kill();
-    }
     mWaitRailKeeper = al::tryCreateRailKeeper(al::getPlacementInfo(info), "WaitRail");
 
     //  Weird vector instruction order bullshit here
@@ -65,14 +64,16 @@ void BirdCarryMeat::init(const al::ActorInitInfo& info) {
 }
 
 // Matched
-bool BirdCarryMeat::receiveMsg(const al::SensorMsg* message, al::HitSensor* other, 
-                    al::HitSensor* self) { return false; };
+bool BirdCarryMeat::receiveMsg(const al::SensorMsg* message, al::HitSensor* other,
+                               al::HitSensor* self) {
+    return false;
+};
 
 // Matched
 void BirdCarryMeat::control() {
     sead::Vector3f stack_10;
     sead::Quatf stack_0;
-    
+
     al::calcJointPos(&stack_10, this, "Cap01");
     al::calcJointQuat(&stack_0, this, "Cap01");
     al::makeMtxQuatPos(&_150, stack_0, stack_10);
@@ -103,9 +104,8 @@ void BirdCarryMeat::exeWaitOnRail() {
     al::moveSyncRailLoop(this, 8.0f);
     al::turnToRailDir(this, 3.0f);
 
-    if (mCarryMeat->isBindable()) {
+    if (mCarryMeat->isBindable())
         al::setNerve(this, &NrvBirdCarryMeat.WaitOnRail);
-    }
 }
 
 // Branch address mismatch
@@ -136,25 +136,24 @@ void BirdCarryMeat::exeMoveMeat() {
         al::clearSklAnimInterpole(this);
     }
 
-    f32 lerpValue = al::lerpValue(25.0f, 35.0f, al::getRailCoord(this) / al::getRailTotalLength(this));
+    f32 lerpValue =
+        al::lerpValue(25.0f, 35.0f, al::getRailCoord(this) / al::getRailTotalLength(this));
     al::moveSyncRail(this, lerpValue);
     al::turnToDirection(this, al::getRailDir(this), 1.0f);
 
-    if (al::isRailReachedEnd(this)) {
+    if (al::isRailReachedEnd(this))
         al::setNerve(this, &NrvBirdCarryMeat.WaitOnRail);
-    }
-    else if (mCarryMeat->isCarryReaction()) {
+    else if (mCarryMeat->isCarryReaction())
         al::setNerve(this, &NrvBirdCarryMeat.DemoCarryMeat);
-    }
 }
 
 // Matched
 void BirdCarryMeat::exeReactionCarry() {
-    if (al::isFirstStep(this)) {
+    if (al::isFirstStep(this))
         al::startAction(this, "ReactionCarry");
-    }
 
-    f32 lerpValue = al::lerpValue(25.0f, 35.0f, al::getRailCoord(this) / al::getRailTotalLength(this));
+    f32 lerpValue =
+        al::lerpValue(25.0f, 35.0f, al::getRailCoord(this) / al::getRailTotalLength(this));
     al::moveSyncRail(this, lerpValue);
     al::turnToDirection(this, al::getRailDir(this), 3.0f);
     if (al::isRailReachedEnd(this)) {
@@ -200,18 +199,15 @@ void BirdCarryMeat::exeFlyAway() {
 
 // Matched
 bool BirdCarryMeat::isDropNerve() const {
-    if (al::isNerve(this, &NrvBirdCarryMeat.WaitOnRail)) {
+    if (al::isNerve(this, &NrvBirdCarryMeat.WaitOnRail))
         return true;
-    }
     return al::isNerve(this, &NrvBirdCarryMeat.MoveMeat);
 }
 
 // Matched
 al::RailRider* BirdCarryMeat::getRailRider() const {
-    if (al::isNerve(this, &NrvBirdCarryMeat.WaitOnRail) && mWaitRailKeeper != nullptr) {
+    if (al::isNerve(this, &NrvBirdCarryMeat.WaitOnRail) && mWaitRailKeeper != nullptr)
         return mWaitRailKeeper->getRailRider();
-    }
-    else {
+    else
         return mRailKeeper->getRailRider();
-    }
 }
