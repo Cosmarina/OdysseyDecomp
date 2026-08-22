@@ -72149,37 +72149,37 @@ MapObj/GrowSeedStateRevival.o:
     label:
     - _ZN20GrowSeedStateRevivalC1EPKcPN2al9LiveActorEPN4sead4QuatIfEE
     - _ZN20GrowSeedStateRevivalC2EPKcPN2al9LiveActorEPN4sead4QuatIfEE
-    status: NotDecompiled
+    status: Matching
   - offset: 0x29981c
     size: 60
     label: _ZN20GrowSeedStateRevival6appearEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x299858
     size: 16
     label: _ZN20GrowSeedStateRevival4killEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x299868
     size: 152
     label: _ZN20GrowSeedStateRevival14exeRevivalWaitEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x299900
     size: 72
     label: _ZN20GrowSeedStateRevival10exeRevivalEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x299948
     size: 36
     label: _ZN20GrowSeedStateRevivalD0Ev
-    status: NotDecompiled
+    status: Matching
     lazy: true
   - offset: 0x29996c
     size: 8
     label: _ZNK12_GLOBAL__N_134GrowSeedStateRevivalNrvRevivalWait7executeEPN2al11NerveKeeperE
-    status: NotDecompiled
+    status: Matching
     guess: true
   - offset: 0x299974
     size: 72
     label: _ZNK12_GLOBAL__N_130GrowSeedStateRevivalNrvRevival7executeEPN2al11NerveKeeperE
-    status: NotDecompiled
+    status: Matching
     guess: true
 MapObj/GrowSeedStateWait.o:
   '.text':
@@ -116869,108 +116869,108 @@ Player/PlayerCapManHeroEyesControl.o:
     label:
     - _ZN27PlayerCapManHeroEyesControlC1EPKcPN2al9LiveActorES4_
     - _ZN27PlayerCapManHeroEyesControlC2EPKcPN2al9LiveActorES4_
-    status: NotDecompiled
+    status: Matching
   - offset: 0x42e024
     size: 84
     label: _ZN27PlayerCapManHeroEyesControl5startEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x42e078
     size: 144
     label: _ZN27PlayerCapManHeroEyesControl9fastStartEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x42e108
     size: 24
     label: _ZN27PlayerCapManHeroEyesControl3endEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x42e120
     size: 80
     label: _ZN27PlayerCapManHeroEyesControl11startPuppetEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x42e170
     size: 92
     label: _ZN27PlayerCapManHeroEyesControl9endPuppetEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x42e1cc
     size: 72
     label: _ZN27PlayerCapManHeroEyesControl4killEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x42e214
     size: 4
     label: _ZN27PlayerCapManHeroEyesControl6updateEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x42e218
     size: 8
     label: _ZNK27PlayerCapManHeroEyesControl12getPuppetEyeEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x42e220
     size: 72
     label: _ZNK27PlayerCapManHeroEyesControl8isAppearEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x42e268
     size: 76
     label: _ZNK27PlayerCapManHeroEyesControl11isDisappearEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x42e2b4
     size: 12
     label: _ZNK27PlayerCapManHeroEyesControl6isDemoEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x42e2c0
     size: 12
     label: _ZNK27PlayerCapManHeroEyesControl9isDeadCapEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x42e2cc
     size: 84
     label: _ZN27PlayerCapManHeroEyesControl21requestWaitAnimChangeEPKc
-    status: NotDecompiled
+    status: Matching
   - offset: 0x42e320
     size: 92
     label: _ZN27PlayerCapManHeroEyesControl9exeAppearEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x42e37c
     size: 60
     label: _ZN27PlayerCapManHeroEyesControl7exeWaitEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x42e3b8
     size: 88
     label: _ZN27PlayerCapManHeroEyesControl12exeDisappearEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x42e410
     size: 24
     label: _ZN27PlayerCapManHeroEyesControl7exeDeadEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x42e428
     size: 4
     label: _ZN27PlayerCapManHeroEyesControl7exeDemoEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x42e42c
     size: 36
     label: _ZN27PlayerCapManHeroEyesControlD0Ev
-    status: NotDecompiled
+    status: Matching
     lazy: true
   - offset: 0x42e450
     size: 28
     label: _ZNK12_GLOBAL__N_134PlayerCapManHeroEyesControlNrvDead7executeEPN2al11NerveKeeperE
-    status: NotDecompiled
+    status: Matching
     guess: true
   - offset: 0x42e46c
     size: 96
     label: _ZNK12_GLOBAL__N_136PlayerCapManHeroEyesControlNrvAppear7executeEPN2al11NerveKeeperE
-    status: NotDecompiled
+    status: Matching
     guess: true
   - offset: 0x42e4cc
     size: 64
     label: _ZNK12_GLOBAL__N_134PlayerCapManHeroEyesControlNrvWait7executeEPN2al11NerveKeeperE
-    status: NotDecompiled
+    status: Matching
     guess: true
   - offset: 0x42e50c
     size: 92
     label: _ZNK12_GLOBAL__N_139PlayerCapManHeroEyesControlNrvDisappear7executeEPN2al11NerveKeeperE
-    status: NotDecompiled
+    status: Matching
     guess: true
   - offset: 0x42e568
     size: 4
     label: _ZNK12_GLOBAL__N_134PlayerCapManHeroEyesControlNrvDemo7executeEPN2al11NerveKeeperE
-    status: NotDecompiled
+    status: Matching
     guess: true
 Player/PlayerCapUpdater.o:
   '.text':
@@ -130135,45 +130135,45 @@ Player/YoshiStateEgg.o:
     label:
     - _ZN13YoshiStateEggC1ERKN2al13ActorInitInfoEPNS0_9LiveActorEPK19IUsePlayerCollisionPK11PlayerConstPKNS0_18WaterSurfaceFinderEP23PlayerModelChangerYoshi
     - _ZN13YoshiStateEggC2ERKN2al13ActorInitInfoEPNS0_9LiveActorEPK19IUsePlayerCollisionPK11PlayerConstPKNS0_18WaterSurfaceFinderEP23PlayerModelChangerYoshi
-    status: NotDecompiled
+    status: Matching
   - offset: 0x49775c
     size: 104
     label: _ZN13YoshiStateEgg6appearEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x4977c4
     size: 16
     label: _ZN13YoshiStateEgg4killEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x4977d4
     size: 92
     label: _ZN13YoshiStateEgg9exeAppearEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x497830
     size: 260
-    label: ''
-    status: NotDecompiled
+    label: _ZL18updateFallVelocityPN2al9LiveActorEPK19IUsePlayerCollisionPK11PlayerConst
+    status: Matching
   - offset: 0x497934
     size: 100
     label: _ZN13YoshiStateEgg7exeWaitEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x497998
     size: 128
     label: _ZN13YoshiStateEgg29reactionCollidedCollisionCodeEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x497a18
     size: 36
     label: _ZN13YoshiStateEggD0Ev
-    status: NotDecompiled
+    status: Matching
     lazy: true
   - offset: 0x497a3c
     size: 104
     label: _ZNK12_GLOBAL__N_120YoshiStateEggNrvWait7executeEPN2al11NerveKeeperE
-    status: NotDecompiled
+    status: Matching
     guess: true
   - offset: 0x497aa4
     size: 96
     label: _ZNK12_GLOBAL__N_122YoshiStateEggNrvAppear7executeEPN2al11NerveKeeperE
-    status: NotDecompiled
+    status: Matching
     guess: true
 Player/YoshiStateHack.o:
   '.text':
@@ -154897,7 +154897,7 @@ Util/ItemUtil.o:
   - offset: 0x556124
     size: 196
     label: _ZN2rs23appearRandomItemFromObjEPN2al9LiveActorEPNS0_9HitSensorEf
-    status: NotDecompiled
+    status: Matching
   - offset: 0x5561e8
     size: 184
     label: _ZN2rs25tryAppearMultiCoinFromObjEPN2al9LiveActorERKN4sead7Vector3IfEEif
@@ -154969,11 +154969,11 @@ Util/ItemUtil.o:
   - offset: 0x556a78
     size: 24
     label: _ZN2rs20addDemoRacePrizeCoinEPN2al9LiveActorE
-    status: NotDecompiled
+    status: Matching
   - offset: 0x556a90
     size: 96
     label: _ZN18StageSceneFunction20appearPlayerDeadCoinEPN2al9LiveActorE
-    status: NotDecompiled
+    status: Matching
 Util/JudgeUtil.o:
   '.text':
   - offset: 0x556af0
