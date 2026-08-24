@@ -25029,7 +25029,7 @@ Enemy/BirdCarryMeat.o:
   - offset: 0x0d8fb8
     size: 380
     label: _ZN13BirdCarryMeat4initERKN2al13ActorInitInfoE
-    status: Wip
+    status: Matching
   - offset: 0x0d9134
     size: 8
     label: _ZN13BirdCarryMeat10receiveMsgEPKN2al9SensorMsgEPNS0_9HitSensorES5_
@@ -25057,7 +25057,7 @@ Enemy/BirdCarryMeat.o:
   - offset: 0x0d9340
     size: 308
     label: _ZN13BirdCarryMeat11exeMoveMeatEv
-    status: Wip
+    status: Matching
   - offset: 0x0d9474
     size: 220
     label: _ZN13BirdCarryMeat16exeReactionCarryEv
