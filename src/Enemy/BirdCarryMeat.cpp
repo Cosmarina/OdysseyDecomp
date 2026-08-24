@@ -35,29 +35,25 @@ NERVES_MAKE_STRUCT(BirdCarryMeat, WaitOnRail, Drop, DemoCarryMeat, MoveMeat, Rea
 // Matched
 BirdCarryMeat::BirdCarryMeat(const char* name) : al::LiveActor(name) {}
 
-// Not matched
+const sead::Vector3f cVec = {300.0f, 0.0f, 0.0f};
+
 void BirdCarryMeat::init(const al::ActorInitInfo& info) {
     al::initActorWithArchiveName(this, info, "BirdCarryMeat", "CarryMeat");
     al::initNerve(this, &NrvBirdCarryMeat.WaitOnRail, 0);
     al::calcLinkChildNum(info, "CarryMeat");
     mCarryMeat = new CarryMeat(al::getLinksActorDisplayName(info, "CarryMeat", 0));
-    /* This is what the code does; not sure how to get around inaccessibility of private member
-    variable mCarryMeat->mBirdCarryMeat = this;
-    */
+    mCarryMeat->setParent(this);
+
     al::initLinksActor(mCarryMeat, info, "CarryMeat", 0);
     mRailKeeper = al::tryCreateRailKeeper(al::getPlacementInfo(info), "Rail");
-    if (mRailKeeper == nullptr)
+    if (!mRailKeeper)
         kill();
     mWaitRailKeeper = al::tryCreateRailKeeper(al::getPlacementInfo(info), "WaitRail");
 
-    //  Weird vector instruction order bullshit here
-    _134 = al::getTrans(this);
-    _140 = al::getQuat(this);
+    _134.set(al::getTrans(this));
+    _140.set(al::getQuat(this));
 
-    // Vector argument not initialized directly
-    // Should be taken from .rodata
-    sead::Vector3f vec = sead::Vector3f(300.0f, 0.0f, 0.0f);
-    mBalloonIcon = rs::createMeatBalloon(al::getLayoutInitInfo(info), &_150, vec);
+    mBalloonIcon = rs::createMeatBalloon(al::getLayoutInitInfo(info), &_150, cVec);
     alActorFunction::invalidateFarClipping(this);
     al::registActorToDemoInfo(this, info);
     makeActorAlive();
@@ -108,7 +104,6 @@ void BirdCarryMeat::exeWaitOnRail() {
         al::setNerve(this, &NrvBirdCarryMeat.WaitOnRail);
 }
 
-// Branch address mismatch
 void BirdCarryMeat::exeDemoCarryMeat() {
     if (al::isFirstStep(this)) {
         al::invalidateClipping(this);
@@ -126,12 +121,13 @@ void BirdCarryMeat::exeDemoCarryMeat() {
     }
 }
 
-// Non-matching
 void BirdCarryMeat::exeMoveMeat() {
     if (al::isFirstStep(this) && !al::isActionPlaying(this, "MoveMeat")) {
         al::updatePoseMtx(this, al::getJointMtxPtr(this, "AllRoot"));
         // Bad instruction order for vector copy from matrix
-        al::resetPosition(this, al::getJointMtxPtr(this, "AllRoot")->getBase(4));
+        sead::Vector3f position;
+        al::getJointMtxPtr(this, "AllRoot")->getTranslation(position);
+        al::resetPosition(this, position);
         al::startAction(this, "MoveMeat");
         al::clearSklAnimInterpole(this);
     }

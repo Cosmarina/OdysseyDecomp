@@ -16,7 +16,10 @@ public:
     void drop();
     void addDemoActor();
 
+    void setParent(BirdCarryMeat* parent) { mParent = parent; }
+
 private:
     u64 _108;
-    BirdCarryMeat* mBirdCarryMeat;
+    BirdCarryMeat* mParent;
+    char filler_118[0x90];
 };
