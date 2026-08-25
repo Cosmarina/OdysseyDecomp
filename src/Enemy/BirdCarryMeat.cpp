@@ -32,7 +32,6 @@ NERVES_MAKE_STRUCT(BirdCarryMeat, WaitOnRail, Drop, DemoCarryMeat, MoveMeat, Rea
                    FlyAway);
 }  // namespace
 
-// Matched
 BirdCarryMeat::BirdCarryMeat(const char* name) : al::LiveActor(name) {}
 
 const sead::Vector3f cVec = {300.0f, 0.0f, 0.0f};
@@ -59,13 +58,11 @@ void BirdCarryMeat::init(const al::ActorInitInfo& info) {
     makeActorAlive();
 }
 
-// Matched
 bool BirdCarryMeat::receiveMsg(const al::SensorMsg* message, al::HitSensor* other,
                                al::HitSensor* self) {
     return false;
 };
 
-// Matched
 void BirdCarryMeat::control() {
     sead::Vector3f stack_10;
     sead::Quatf stack_0;
@@ -75,12 +72,10 @@ void BirdCarryMeat::control() {
     al::makeMtxQuatPos(&_150, stack_0, stack_10);
 }
 
-// Matched
 sead::Matrix34f* BirdCarryMeat::getBindMtx() const {
     return al::getJointMtxPtr(this, "Meat");
 }
 
-// Matched
 void BirdCarryMeat::skipDemo() {
     al::setRailPosToEnd(this);
     al::resetPosition(this, al::getRailPos(this));
@@ -90,7 +85,6 @@ void BirdCarryMeat::skipDemo() {
     al::setNerve(this, &NrvBirdCarryMeat.WaitOnRail);
 }
 
-// Matched
 void BirdCarryMeat::exeWaitOnRail() {
     if (al::isFirstStep(this)) {
         mBalloonIcon->startUpdateDraw();
@@ -143,7 +137,6 @@ void BirdCarryMeat::exeMoveMeat() {
         al::setNerve(this, &NrvBirdCarryMeat.DemoCarryMeat);
 }
 
-// Matched
 void BirdCarryMeat::exeReactionCarry() {
     if (al::isFirstStep(this))
         al::startAction(this, "ReactionCarry");
@@ -162,7 +155,6 @@ void BirdCarryMeat::exeReactionCarry() {
     }
 }
 
-// Matched
 void BirdCarryMeat::exeDrop() {
     if (al::isFirstStep(this)) {
         al::tryStartActionIfNotPlaying(this, "FallMeat");
@@ -174,7 +166,6 @@ void BirdCarryMeat::exeDrop() {
     }
 }
 
-// Matched
 void BirdCarryMeat::exeFlyAway() {
     if (al::isFirstStep(this)) {
         al::setVelocityToFront(this, 30.0f);
@@ -193,14 +184,12 @@ void BirdCarryMeat::exeFlyAway() {
     }
 }
 
-// Matched
 bool BirdCarryMeat::isDropNerve() const {
     if (al::isNerve(this, &NrvBirdCarryMeat.WaitOnRail))
         return true;
     return al::isNerve(this, &NrvBirdCarryMeat.MoveMeat);
 }
 
-// Matched
 al::RailRider* BirdCarryMeat::getRailRider() const {
     if (al::isNerve(this, &NrvBirdCarryMeat.WaitOnRail) && mWaitRailKeeper != nullptr)
         return mWaitRailKeeper->getRailRider();
