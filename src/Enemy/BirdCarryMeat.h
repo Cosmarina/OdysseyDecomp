@@ -38,7 +38,9 @@ private:
     BalloonIcon* mBalloonIcon = nullptr;
     u64 _128 = 0;
     u32 _130 = 0;
-    sead::Vector3f _134 = sead::Vector3f::zero;
-    sead::Quatf _140 = sead::Quatf::unit;
-    sead::Matrix34f _150 = sead::Matrix34f::ident;
+    sead::Vector3f mTrans = sead::Vector3f::zero;
+    sead::Quatf mPos = sead::Quatf::unit;
+    sead::Matrix34f mJointMtx = sead::Matrix34f::ident;
 };
+
+static_assert(sizeof(BirdCarryMeat) == 0x180);

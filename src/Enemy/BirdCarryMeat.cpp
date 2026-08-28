@@ -49,10 +49,10 @@ void BirdCarryMeat::init(const al::ActorInitInfo& info) {
         kill();
     mWaitRailKeeper = al::tryCreateRailKeeper(al::getPlacementInfo(info), "WaitRail");
 
-    _134.set(al::getTrans(this));
-    _140.set(al::getQuat(this));
+    mTrans.set(al::getTrans(this));
+    mPos.set(al::getQuat(this));
 
-    mBalloonIcon = rs::createMeatBalloon(al::getLayoutInitInfo(info), &_150, cVec);
+    mBalloonIcon = rs::createMeatBalloon(al::getLayoutInitInfo(info), &mJointMtx, cVec);
     alActorFunction::invalidateFarClipping(this);
     al::registActorToDemoInfo(this, info);
     makeActorAlive();
@@ -64,12 +64,12 @@ bool BirdCarryMeat::receiveMsg(const al::SensorMsg* message, al::HitSensor* othe
 };
 
 void BirdCarryMeat::control() {
-    sead::Vector3f stack_10;
-    sead::Quatf stack_0;
+    sead::Vector3f jointPos;
+    sead::Quatf jointQuat;
 
-    al::calcJointPos(&stack_10, this, "Cap01");
-    al::calcJointQuat(&stack_0, this, "Cap01");
-    al::makeMtxQuatPos(&_150, stack_0, stack_10);
+    al::calcJointPos(&jointPos, this, "Cap01");
+    al::calcJointQuat(&jointQuat, this, "Cap01");
+    al::makeMtxQuatPos(&mJointMtx, jointQuat, jointPos);
 }
 
 sead::Matrix34f* BirdCarryMeat::getBindMtx() const {
@@ -109,7 +109,7 @@ void BirdCarryMeat::exeDemoCarryMeat() {
     }
 
     if (al::isActionEnd(this)) {
-        mCarryMeat->endDemoAndBind(al::getJointMtxPtr(this, "Meat"));
+        mCarryMeat->endDemoAndBind(getBindMtx());
         al::setRailPosToStart(this);
         al::setNerve(this, &NrvBirdCarryMeat.Drop);
     }
@@ -118,7 +118,6 @@ void BirdCarryMeat::exeDemoCarryMeat() {
 void BirdCarryMeat::exeMoveMeat() {
     if (al::isFirstStep(this) && !al::isActionPlaying(this, "MoveMeat")) {
         al::updatePoseMtx(this, al::getJointMtxPtr(this, "AllRoot"));
-        // Bad instruction order for vector copy from matrix
         sead::Vector3f position;
         al::getJointMtxPtr(this, "AllRoot")->getTranslation(position);
         al::resetPosition(this, position);
@@ -126,14 +125,15 @@ void BirdCarryMeat::exeMoveMeat() {
         al::clearSklAnimInterpole(this);
     }
 
-    f32 lerpValue =
-        al::lerpValue(25.0f, 35.0f, al::getRailCoord(this) / al::getRailTotalLength(this));
-    al::moveSyncRail(this, lerpValue);
+    al::moveSyncRail(
+        this, al::lerpValue(25.0f, 35.0f, al::getRailCoord(this) / al::getRailTotalLength(this)));
     al::turnToDirection(this, al::getRailDir(this), 1.0f);
 
-    if (al::isRailReachedEnd(this))
+    if (al::isRailReachedEnd(this)) {
         al::setNerve(this, &NrvBirdCarryMeat.WaitOnRail);
-    else if (mCarryMeat->isCarryReaction())
+        return;
+    }
+    if (mCarryMeat->isCarryReaction())
         al::setNerve(this, &NrvBirdCarryMeat.DemoCarryMeat);
 }
 
@@ -141,15 +141,16 @@ void BirdCarryMeat::exeReactionCarry() {
     if (al::isFirstStep(this))
         al::startAction(this, "ReactionCarry");
 
-    f32 lerpValue =
-        al::lerpValue(25.0f, 35.0f, al::getRailCoord(this) / al::getRailTotalLength(this));
-    al::moveSyncRail(this, lerpValue);
+    al::moveSyncRail(
+        this, al::lerpValue(25.0f, 35.0f, al::getRailCoord(this) / al::getRailTotalLength(this)));
     al::turnToDirection(this, al::getRailDir(this), 3.0f);
+
     if (al::isRailReachedEnd(this)) {
         al::setNerve(this, &NrvBirdCarryMeat.WaitOnRail);
+        return;
     }
 
-    else if (al::isActionEnd(this)) {
+    if (al::isActionEnd(this)) {
         al::startAction(this, "MoveMeat");
         al::setNerve(this, &NrvBirdCarryMeat.Drop);
     }
@@ -160,7 +161,7 @@ void BirdCarryMeat::exeDrop() {
         al::tryStartActionIfNotPlaying(this, "FallMeat");
         al::setVelocityZero(this);
     }
-    if (al::isGreaterEqualStep(this, 0x3c)) {
+    if (al::isGreaterEqualStep(this, 60)) {
         mCarryMeat->drop();
         al::setNerve(this, &NrvBirdCarryMeat.MoveMeat);
     }
@@ -171,28 +172,26 @@ void BirdCarryMeat::exeFlyAway() {
         al::setVelocityToFront(this, 30.0f);
         al::addVelocityY(this, 10.0f);
     }
-    if (al::isGreaterEqualStep(this, 0xb4)) {
+    if (al::isGreaterEqualStep(this, 180)) {
         alActorFunction::invalidateFarClipping(this);
         al::setVelocityZero(this);
         al::hideModelIfShow(this);
         if (mCarryMeat->isWaiting()) {
             al::showModelIfHide(this);
-            al::setTrans(this, _134);
-            al::setQuat(this, _140);
+            al::setTrans(this, mTrans);
+            al::setQuat(this, mPos);
             al::setNerve(this, &NrvBirdCarryMeat.WaitOnRail);
         }
     }
 }
 
 bool BirdCarryMeat::isDropNerve() const {
-    if (al::isNerve(this, &NrvBirdCarryMeat.WaitOnRail))
-        return true;
-    return al::isNerve(this, &NrvBirdCarryMeat.MoveMeat);
+    return al::isNerve(this, &NrvBirdCarryMeat.WaitOnRail) ||
+           al::isNerve(this, &NrvBirdCarryMeat.MoveMeat);
 }
 
 al::RailRider* BirdCarryMeat::getRailRider() const {
     if (al::isNerve(this, &NrvBirdCarryMeat.WaitOnRail) && mWaitRailKeeper != nullptr)
         return mWaitRailKeeper->getRailRider();
-    else
-        return mRailKeeper->getRailRider();
+    return mRailKeeper->getRailRider();
 }
