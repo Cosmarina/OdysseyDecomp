@@ -14,9 +14,9 @@ public:
     void endHack();
     void reset();
     void control() override;
-    bool isFirstDemo() const;
-    bool isEnableSkipDemo() const;
-    void skipDemo();
+    bool isFirstDemo() const override;
+    bool isEnableSkipDemo() const override;
+    void skipDemo() override;
     void endDemoAndBind(const sead::Matrix34f*);
 
     bool isWaiting() const;
@@ -48,9 +48,8 @@ public:
     void setParent(BirdCarryMeat* parent) { mParent = parent; }
 
 private:
-    u64 _108;
     BirdCarryMeat* mParent;
     char filler_118[0x90];
 };
 
-static_assert(sizeof(CarryMeat) == 0x1a0);
+static_assert(sizeof(CarryMeat) == 0x1a8);

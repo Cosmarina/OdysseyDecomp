@@ -191,7 +191,8 @@ bool BirdCarryMeat::isDropNerve() const {
 }
 
 al::RailRider* BirdCarryMeat::getRailRider() const {
-    if (al::isNerve(this, &NrvBirdCarryMeat.WaitOnRail) && mWaitRailKeeper != nullptr)
+    if (al::isNerve(this, &NrvBirdCarryMeat.WaitOnRail) && mWaitRailKeeper)
         return mWaitRailKeeper->getRailRider();
+
     return mRailKeeper->getRailRider();
 }
