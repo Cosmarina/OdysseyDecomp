@@ -222808,29 +222808,29 @@ Library/Action/RootSercher.o:
     label:
     - _ZN2al15RootSercherNodeC1Ev
     - _ZN2al15RootSercherNodeC2Ev
-    status: NotDecompiled
+    status: Matching
   - offset: 0x7ff6fc
     size: 16
     label: _ZN2al15RootSercherNode5clearEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x7ff70c
     size: 12
     label: _ZN2al15RootSercherNode4openEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x7ff718
     size: 12
     label: _ZN2al15RootSercherNode5closeEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x7ff724
     size: 12
     label: _ZNK2al15RootSercherNode13calcTotalCostEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x7ff730
     size: 32
     label:
     - _ZN2al11RootSercherC1Ev
     - _ZN2al11RootSercherC2Ev
-    status: NotDecompiled
+    status: Matching
   - offset: 0x7ff750
     size: 316
     label: _ZN2al11RootSercher4initEii
@@ -222846,7 +222846,7 @@ Library/Action/RootSercher.o:
   - offset: 0x7ff940
     size: 20
     label: _ZNK2al11RootSercher7getNodeEii
-    status: NotDecompiled
+    status: Matching
   - offset: 0x7ff954
     size: 92
     label: _ZNK2al11RootSercher19findMinCostOpenNodeEv
@@ -222870,7 +222870,7 @@ Library/Action/RootSercher.o:
   - offset: 0x7ffd48
     size: 28
     label: _ZN2al11RootSercher11addOpenListEPNS_15RootSercherNodeE
-    status: NotDecompiled
+    status: Matching
   - offset: 0x7ffd64
     size: 384
     label: _ZN2al11RootSercher5startEiiiiii
@@ -222882,11 +222882,11 @@ Library/Action/RootSercher.o:
   - offset: 0x7fff6c
     size: 64
     label: _ZNK2al11RootSercher17calcHeuristicCostEiiii
-    status: NotDecompiled
+    status: Matching
   - offset: 0x7fffac
     size: 8
     label: _ZNK2al11RootSercher15getConnectCountEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x7fffb4
     size: 84
     label: _ZNK2al11RootSercher15getConnectIndexEPiS1_iii
@@ -222894,7 +222894,7 @@ Library/Action/RootSercher.o:
   - offset: 0x800008
     size: 8
     label: _ZNK2al11RootSercher10checkReachEii
-    status: NotDecompiled
+    status: Matching
   - offset: 0x800010
     size: 84
     label: _ZNK2al11RootSercher8calcCostEiiPKNS_15RootSercherNodeE
