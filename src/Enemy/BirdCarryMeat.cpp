@@ -50,7 +50,7 @@ void BirdCarryMeat::init(const al::ActorInitInfo& info) {
     mWaitRailKeeper = al::tryCreateRailKeeper(al::getPlacementInfo(info), "WaitRail");
 
     mTrans.set(al::getTrans(this));
-    mPos.set(al::getQuat(this));
+    mQuat.set(al::getQuat(this));
 
     mBalloonIcon = rs::createMeatBalloon(al::getLayoutInitInfo(info), &mJointMtx, cVec);
     alActorFunction::invalidateFarClipping(this);
@@ -179,7 +179,7 @@ void BirdCarryMeat::exeFlyAway() {
         if (mCarryMeat->isWaiting()) {
             al::showModelIfHide(this);
             al::setTrans(this, mTrans);
-            al::setQuat(this, mPos);
+            al::setQuat(this, mQuat);
             al::setNerve(this, &NrvBirdCarryMeat.WaitOnRail);
         }
     }
