@@ -73,6 +73,11 @@ public:
     void setupEventFade();
     void startEventWait();
     void endEventWait(f32);
+
+private:
+    char filler[0x322];
 };
 
 f32 calcRunSpeedRate(const al::LiveActor* actor);
+
+static_assert(sizeof(SphinxRide) == 0x440);
