@@ -23,14 +23,14 @@ public:
     void requestGetOffForce();
     bool receiveEvent(const al::EventFlowEventData* event) override;
     bool judgeQuery(const char*);
-    void updateCollider();
-    void calcAnim();
+    void updateCollider() override;
+    void calcAnim() override;
     void attackSensor(al::HitSensor* self, al::HitSensor* other) override;
     bool receiveMsg(const al::SensorMsg* message, al::HitSensor* self,
                     al::HitSensor* other) override;
     void disappear();
     bool isCanRidePlacement();
-    void startClipped();
+    void startClipped() override;
 
     void exeWait();
     void exeStandby();
@@ -75,7 +75,7 @@ public:
     void endEventWait(f32);
 
 private:
-    char filler[0x322];
+    char filler[0x330];
 };
 
 f32 calcRunSpeedRate(const al::LiveActor* actor);
