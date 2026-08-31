@@ -1,5 +1,7 @@
 #include "Library/Action/RootSercher.h"
 
+#include <math/seadMathCalcCommon.h>
+
 namespace al {
     
 RootSercherNode::RootSercherNode() {}
@@ -40,17 +42,17 @@ void RootSercher::clear() {
 // TODO: Match function
 RootSercherNode* RootSercher::tryGetNode(int index, int offset) const {
     RootSercherNode* node = nullptr;
-    if (index > -1 && offset > -1 && index < _18) {
-        if (_1C <= offset) {
-            return nullptr; 
-        }
-        node = mOtherNodeArray[index] + offset;
+    // Conditionals dont want to behave
+    if (index < 0 || offset < 0) {
+        return node;
     }
+    index++;
+    node = getNode(index, offset);
     return node;
 }
 
-RootSercherNode* RootSercher::getNode(int arrayIndex, int offset) const {
-    RootSercherNode* node = mOtherNodeArray[arrayIndex];
+RootSercherNode* RootSercher::getNode(int array_index, int offset) const {
+    RootSercherNode* node = mOtherNodeArray[array_index];
     return offset + node;
 }
 
@@ -104,8 +106,19 @@ int RootSercher::calcHeuristicCost(int arg1, int arg2, int arg3, int arg4) const
 int RootSercher::getConnectCount() const { return 4; }
 
 // TODO: Match function
-void RootSercher::getConnectIndex(int*, int*, int, int, int) const {
+void RootSercher::getConnectIndex(int* arg1, int* arg2, int arg3, int arg4, int jump_table_index) const {
+    switch (jump_table_index) {
+        case 0:
+            
+        case 1:
+        
+        case 2:
+        
+        case 3:
 
+        default:
+            return;
+    }
 }
 
 bool RootSercher::checkReach(int, int) const { return true; }

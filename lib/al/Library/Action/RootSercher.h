@@ -48,7 +48,7 @@ public:
 
     virtual int calcHeuristicCost(int arg1, int arg2, int arg3, int arg4) const;
     virtual int getConnectCount() const;
-    virtual void getConnectIndex(int*, int*, int, int, int) const;
+    virtual void getConnectIndex(int* arg1, int* arg2, int arg3, int arg4, int jump_table_index) const;
 
     bool checkReach(int, int) const;
     void calcCost(int, int, RootSercherNode const*) const;

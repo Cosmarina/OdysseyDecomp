@@ -222842,7 +222842,7 @@ Library/Action/RootSercher.o:
   - offset: 0x7ff8f8
     size: 72
     label: _ZNK2al11RootSercher10tryGetNodeEii
-    status: NotDecompiled
+    status: Wip
   - offset: 0x7ff940
     size: 20
     label: _ZNK2al11RootSercher7getNodeEii
