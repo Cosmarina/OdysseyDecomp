@@ -22,7 +22,10 @@ public:
     void control() override;
     void requestGetOffForce();
     bool receiveEvent(const al::EventFlowEventData* event) override;
-    bool judgeQuery(const char*);
+    bool
+    judgeQuery(const char*);  // this should override the base judgeQuery from IEventFlowQueryJudge,
+                              // but I don't know where to create the relevant header file for
+                              // IEventFlowEventReceiver given that it doesn't have its own TU
     void updateCollider() override;
     void calcAnim() override;
     void attackSensor(al::HitSensor* self, al::HitSensor* other) override;
