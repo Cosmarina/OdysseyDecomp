@@ -72,7 +72,7 @@ public:
     void endEventWait(f32);
 
 private:
-    char filler[0x330];
+    char filler[0x328];
 };
 
 f32 calcRunSpeedRate(const al::LiveActor* actor);

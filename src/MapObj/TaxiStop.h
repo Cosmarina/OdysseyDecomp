@@ -31,7 +31,7 @@ public:
     void setNervePlayerBind();
 
 private:
-    char filler[0x58];
+    char filler[0x50];
 };
 
 static_assert(sizeof(TaxiStop) == 0x168);
