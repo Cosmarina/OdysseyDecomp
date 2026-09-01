@@ -1,11 +1,8 @@
 #pragma once
 
 #include "Library/Event/IEventFlowEventReceiver.h"
+#include "Library/Event/IEventFlowQueryJudge.h"
 #include "Library/LiveActor/LiveActor.h"
-
-namespace al {
-class IEventFlowQueryJudge {};
-}  // namespace al
 
 class SphinxRide;
 
@@ -19,10 +16,7 @@ public:
     bool receiveMsg(const al::SensorMsg* message, al::HitSensor* self,
                     al::HitSensor* other) override;
     bool receiveEvent(const al::EventFlowEventData* event) override;
-    bool
-    judgeQuery(const char*);  // this should override the base judgeQuery from IEventFlowQueryJudge,
-                              // but I don't know where to create the relevant header file for
-                              // IEventFlowEventReceiver given that it doesn't have its own TU
+    bool judgeQuery(const char*) override;
 
     void exeWait();
     void exeNoPay();
