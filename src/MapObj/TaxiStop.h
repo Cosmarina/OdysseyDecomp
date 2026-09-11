@@ -30,8 +30,14 @@ public:
     void setNerveWaitOrNoPay();
     void setNervePlayerBind();
 
+    sead::Vector3f getTrans() { return mTrans; }
+    sead::Vector3f getRot() { return mRot; }
+
 private:
-    char filler[0x50];
+    char filler[0x10];
+    sead::Vector3f mTrans;
+    sead::Vector3f mRot;
+    char moreFiller[0x28];
 };
 
 static_assert(sizeof(TaxiStop) == 0x168);

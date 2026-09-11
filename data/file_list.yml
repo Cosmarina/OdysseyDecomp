@@ -86846,19 +86846,19 @@ MapObj/SphinxTaxiWatcher.o:
   - offset: 0x328784
     size: 136
     label: _ZN17SphinxTaxiWatcherC2EPKc
-    status: NotDecompiled
+    status: Matching
   - offset: 0x32880c
     size: 140
     label: _ZN17SphinxTaxiWatcherC1EPKc
-    status: NotDecompiled
+    status: Matching
   - offset: 0x328898
     size: 396
     label: _ZN17SphinxTaxiWatcher4initERKN2al13ActorInitInfoE
-    status: NotDecompiled
+    status: Matching
   - offset: 0x328a24
     size: 384
     label: _ZN17SphinxTaxiWatcher18initAfterPlacementEv
-    status: NotDecompiled
+    status: Wip
   - offset: 0x328ba4
     size: 128
     label: _ZN17SphinxTaxiWatcher7exeWaitEv
