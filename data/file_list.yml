@@ -86862,20 +86862,20 @@ MapObj/SphinxTaxiWatcher.o:
   - offset: 0x328ba4
     size: 128
     label: _ZN17SphinxTaxiWatcher7exeWaitEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x328c24
     size: 128
     label: _ZN17SphinxTaxiWatcher13exePlayerBindEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x328ca4
     size: 128
     label: _ZNK12_GLOBAL__N_124SphinxTaxiWatcherNrvWait7executeEPN2al11NerveKeeperE
-    status: NotDecompiled
+    status: Matching
     guess: true
   - offset: 0x328d24
     size: 128
     label: _ZNK12_GLOBAL__N_130SphinxTaxiWatcherNrvPlayerBind7executeEPN2al11NerveKeeperE
-    status: NotDecompiled
+    status: Matching
     guess: true
 MapObj/StageSwitchSelector.o:
   '.text':

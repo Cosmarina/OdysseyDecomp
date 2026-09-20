@@ -52,6 +52,7 @@ void SphinxTaxiWatcher::init(const al::ActorInitInfo& info) {
     makeActorAlive();
 }
 
+// NON-MATCHING
 void SphinxTaxiWatcher::initAfterPlacement() {
     u32 w21;
     f32 distToNearestStop; // Distance from mSphinxRide to the nearest TaxiStop
@@ -71,7 +72,7 @@ void SphinxTaxiWatcher::initAfterPlacement() {
     }
 
     else {
-        for (int i = 1; i < mTaxiStopArray.size(); i++) {
+        for (s32 i = 1; i < mTaxiStopArray.size(); i++) {
             f32 distToStop = (al::getTrans(mTaxiStopArray.at(i)) - rs::getPlayerPos(mSphinxRide)).length();
             if (distToNearestStop > distToStop) {
                 distToNearestStop = distToStop;
@@ -84,6 +85,22 @@ void SphinxTaxiWatcher::initAfterPlacement() {
     al::resetRotatePosition(mSphinxRide, stop->getRot(), stop->getTrans());
 }
 
-void exeWait() {}
+void SphinxTaxiWatcher::exeWait() {
+    if (mSphinxRide->isRidePlayer()) {
+        for (s32 i = 0; i < mTaxiStopArray.size(); i++) {
+            mTaxiStopArray.at(i)->setNervePlayerBind();
+        }
+        al::setNerve(this, &PlayerBind);
+    }
+}
 
-void exePlayerWait() {}
+void SphinxTaxiWatcher::exePlayerBind() {
+    if (mSphinxRide->isRidePlayer()) {
+        return;
+    }
+
+    for (s32 i = 0; i < mTaxiStopArray.size(); i++) {
+        mTaxiStopArray.at(i)->setNerveWaitOrNoPay();
+    }
+    al::setNerve(this, &Wait); 
+}
