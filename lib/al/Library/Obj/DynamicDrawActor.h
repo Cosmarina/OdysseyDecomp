@@ -14,6 +14,8 @@ public:
     // incomplete
     void finalize() override;
 
+    void setupHio();
+
 private:
     // missing
 };
