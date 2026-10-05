@@ -268021,7 +268021,7 @@ Library/Obj/DynamicDrawActor.o:
   - offset: 0x96654c
     size: 4
     label: _ZN2al16DynamicDrawActor8setupHioEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x966550
     size: 12
     label: _ZN2al16DynamicDrawActor5beginEv
@@ -268057,11 +268057,11 @@ Library/Obj/DynamicDrawActor.o:
   - offset: 0x9665e0
     size: 8
     label: _ZN2al16DynamicDrawActor3endEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x9665e8
     size: 8
     label: _ZN2al16DynamicDrawActor11beginModifyEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x9665f0
     size: 8
     label: _ZN2al16DynamicDrawActor6normalEjRKN4sead7Vector3IfEE
