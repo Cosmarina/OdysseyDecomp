@@ -27248,7 +27248,7 @@ Enemy/CarryMeat.o:
   - offset: 0x0ef85c
     size: 272
     label: _ZN9CarryMeatC1EPKc
-    status: NotDecompiled
+    status: Wip
   - offset: 0x0ef96c
     size: 648
     label: _ZN9CarryMeat4initERKN2al13ActorInitInfoE
@@ -27256,7 +27256,7 @@ Enemy/CarryMeat.o:
   - offset: 0x0efbf4
     size: 68
     label: _ZN9CarryMeat12validateHackEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x0efc38
     size: 1012
     label: _ZN9CarryMeat10receiveMsgEPKN2al9SensorMsgEPNS0_9HitSensorES5_
@@ -27264,7 +27264,7 @@ Enemy/CarryMeat.o:
   - offset: 0x0f002c
     size: 64
     label: _ZN9CarryMeat7endHackEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x0f006c
     size: 220
     label: _ZN9CarryMeat5resetEv
@@ -27272,11 +27272,11 @@ Enemy/CarryMeat.o:
   - offset: 0x0f0148
     size: 72
     label: _ZN9CarryMeat7controlEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x0f0190
     size: 8
     label: _ZNK9CarryMeat11isFirstDemoEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x0f0198
     size: 8
     label: _ZThn264_NK9CarryMeat11isFirstDemoEv
@@ -27284,7 +27284,7 @@ Enemy/CarryMeat.o:
   - offset: 0x0f01a0
     size: 32
     label: _ZNK9CarryMeat16isEnableSkipDemoEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x0f01c0
     size: 32
     label: _ZThn264_NK9CarryMeat16isEnableSkipDemoEv
@@ -27292,7 +27292,7 @@ Enemy/CarryMeat.o:
   - offset: 0x0f01e0
     size: 88
     label: _ZN9CarryMeat8skipDemoEv
-    status: NotDecompiled
+    status: Wip
   - offset: 0x0f0238
     size: 140
     label: _ZN9CarryMeat14endDemoAndBindEPKN4sead8Matrix34IfEE
@@ -27304,11 +27304,11 @@ Enemy/CarryMeat.o:
   - offset: 0x0f031c
     size: 76
     label: _ZNK9CarryMeat9isWaitingEv
-    status: NotDecompiled
+    status: Wip
   - offset: 0x0f0368
     size: 16
     label: _ZNK9CarryMeat10isBindableEv
-    status: NotDecompiled
+    status: Wip
   - offset: 0x0f0378
     size: 16
     label: _ZNK9CarryMeat15isCarryReactionEv
@@ -27320,15 +27320,15 @@ Enemy/CarryMeat.o:
   - offset: 0x0f043c
     size: 20
     label: _ZN9CarryMeat4dropEv
-    status: NotDecompiled
+    status: Wip
   - offset: 0x0f0450
     size: 32
     label: _ZN9CarryMeat12addDemoActorEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x0f0470
     size: 64
     label: _ZN9CarryMeat11exeWaitSaltEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x0f04b0
     size: 140
     label: _ZN9CarryMeat7exeWaitEv
@@ -27340,7 +27340,7 @@ Enemy/CarryMeat.o:
   - offset: 0x0f063c
     size: 68
     label: _ZN9CarryMeat11exeHackSaltEv
-    status: NotDecompiled
+    status: Wip
   - offset: 0x0f0680
     size: 424
     label: _ZN9CarryMeat15exeHackSaltJumpEv
@@ -27348,11 +27348,11 @@ Enemy/CarryMeat.o:
   - offset: 0x0f0828
     size: 12
     label: _ZN9CarryMeat7exeHackEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x0f0834
     size: 104
     label: _ZN9CarryMeat15exeReactionJumpEv
-    status: NotDecompiled
+    status: Wip
   - offset: 0x0f089c
     size: 104
     label: _ZN9CarryMeat18exeReactionHipDropEv
@@ -27376,11 +27376,11 @@ Enemy/CarryMeat.o:
   - offset: 0x0f0ee8
     size: 84
     label: _ZN9CarryMeat15exeHackBindableEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x0f0f3c
     size: 68
     label: _ZN9CarryMeat16exeDemoCarryMeatEv
-    status: NotDecompiled
+    status: Matching
   - offset: 0x0f0f80
     size: 76
     label: _ZN9CarryMeat11exeHackBindEv
@@ -27388,7 +27388,7 @@ Enemy/CarryMeat.o:
   - offset: 0x0f0fcc
     size: 120
     label: _ZN9CarryMeat19exeHackBindReactionEv
-    status: NotDecompiled
+    status: Wip
   - offset: 0x0f1044
     size: 820
     label: _ZN9CarryMeat11exeHackFallEv

@@ -4,7 +4,18 @@
 
 #include "Demo/IUseDemoSkip.h"
 
+
+
 class BirdCarryMeat;
+class CapTargetInfo;
+class IUsePlayerHack;
+class PlayerHackStartShaderCtrl;
+class WaveSurfMapParts;
+
+namespace al {
+class CameraTicket;
+class JointSpringControllerHolder;
+}   // namespace al
 
 class CarryMeat : public al::LiveActor, public IUseDemoSkip {
 public:
@@ -52,8 +63,25 @@ public:
     void setParent(BirdCarryMeat* parent) { mParent = parent; }
 
 private:
-    BirdCarryMeat* mParent;
-    char filler_118[0x90];
+    BirdCarryMeat* mParent = nullptr;
+    IUsePlayerHack* mPlayerHack;
+    CapTargetInfo* mCapTargetInfo;
+    WaveSurfMapParts* mWaveSurfMapParts;
+    PlayerHackStartShaderCtrl* mPlayerHackStartShaderCtrl;
+    PlayerHackStartShaderCtrl* mPlayerHackStartShaderCtrl2;
+    al::CameraTicket* mCameraTicket;
+    al::JointSpringControllerHolder* mJointSpringControllerHolder;
+    sead::Matrix34f* _150;
+    sead::Quatf _158 = sead::Quatf::unit;
+    sead::Vector3f _168 = sead::Vector3f::zero;
+    char _174[0xB];
+    u8 _17F;
+    u8 _180;
+    u8 _181;
+    u8 _182;
+    u8 _183;
+    sead::Quatf _184 = sead::Quatf::unit;
+    sead::Quatf _194 = sead::Quatf::unit;
 };
 
 static_assert(sizeof(CarryMeat) == 0x1a8);
